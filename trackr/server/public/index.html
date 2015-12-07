@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tracker Admin</title>
+
+    <link href="stylesheets/main.css" rel="stylesheet">
+</head>
+<body ng-app="trackrAdmin">
+    <section ng-controller="ServerControlController">
+        <div class="inline-block margin-right-50">
+            <button ng-click="checkStatus()">Check Server</button>
+            <div>{{ping}}</div>
+        </div>
+        <div class="inline-block margin-right-50">
+            <input type="number" ng-model="duration">
+            <button ng-click="startProbeRequester()"
+                    ng-disabled="probeRequesterStarted">Start</button>
+            <div>{{startConfirmation}}</div>
+        </div>
+        <div class="inline-block">
+            <button ng-click="stopProbeRequester()"
+                    ng-diabled="!probeRequesterStarted">Stop</button>
+            <div>{{stopConfirmation}}</div>
+        </div>
+        <div class="readings-section">
+            <button ng-click="fetchReadings()">Get/Update Readings</button>
+            <div ng-show="fetchingReadings">Fetching readings...</div>
+            <button ng-click="toggleFetchReadings()">{{autoFetch ? 'Stop Auto Fetch' : 'Auto Fetch'}}</button>
+
+            <ul ng-repeat="(deviceId, deviceReadings) in readings"
+                class="readings">
+                <li class="device-name">Device: {{deviceId}}</li>
+                <li ng-repeat="reading in deviceReadings | orderBy: 'epoch' : true">
+                    {{reading.epoch | date : 'mediumTime'}}:
+                    <span class="temperature">
+                        <span class="bold">{{reading.temperature}}</span>
+                        °C
+                    </span>
+                    <span class="humidity">
+                        <span class="bold">{{reading.humidity}}</span>
+                        %RH
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <script src="js/libs/angular.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

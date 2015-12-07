@@ -1,0 +1,16 @@
+{
+  "name": "trackr-tessel-probe",
+  "version": "1.0",
+  "description": "Script to run on Tessel probe to broadcast climate readings to remote app",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Murtaza Haveliwala <murtaza.sh@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "climate-si7020": "^0.1.1",
+    "nodejs-websocket": "^1.4.0"
+  }
+}
