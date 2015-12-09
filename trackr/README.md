@@ -9,7 +9,7 @@ It basically comprises of -
 ##### Probe
 This piece of hardware that deploys at any premise, takes temperature and humidity readings and transmits them to remote app over wifi using web sockets.
 
-Probe use a [Tessel board](tessel.io) ([v1.0](https://github.com/tessel/t1-docs))
+Probe use a [Tessel board](https://www.tessel.io) ([v1.0](https://github.com/tessel/t1-docs))
 along with it's [climate module](http://start.tessel.io/modules/climate).
 
 ##### Remote App
@@ -22,16 +22,16 @@ The app and probes communicate via web sockets.
 It uses an [Express](http://expressjs.com/en/index.html) server for serving frontend and [web socket](https://www.npmjs.com/package/nodejs-websocket) library for creating web sockets. 
 
 #### Repo Structure
-* [probe](TBD) - All scripts related to probe hardware that are to be deployed on Tessel board
-* [probe-troubleshoot](TBD) - Trouble shooting scripts to test individual probe functions
-* [server](TBD) - Remote app related scripts
+* probe - All scripts related to probe hardware that are to be deployed on Tessel board
+* probe-troubleshoot - Trouble shooting scripts to test individual probe functions
+* server - Remote app related scripts
 
 #### Setup
 
 ##### Probe
 To setup the device, a system (desktop/laptop) is required to be installed with tools that are then used to push the scripts on the device.
 
-The probe related scripts are located in [trackr/probe](TBD).
+The probe related scripts are located in [probe].
 
 ###### Setting up a system
 1. Install [NodeJS (v0.12)](https://nodejs.org/dist/v0.12.7/)
@@ -39,12 +39,12 @@ The probe related scripts are located in [trackr/probe](TBD).
     ```
     $> npm install -g tessel
     ```
-3. Fetch [probe scripts](TBD)
+3. Fetch [probe scripts](probe)
 4. Open Terminal and move to the scripts directory
     ```
     $> cd trackr/probe
     ```
-5. Configure [configs.json](TBD) with -
+5. Configure configs.json ([probe/configs.json]) with -
     1. probe's id, 
     2. remote location's wifi credentials and 
     3. remote app's ip address (and ports)
@@ -63,12 +63,12 @@ The probe related scripts are located in [trackr/probe](TBD).
 Choose a system that will host the remote app and on it do these following setups -
 
 1. Install [NodeJS (v0.12)](https://nodejs.org/dist/v0.12.7/)
-2. Fetch [remote app scripts](TBD)
+2. Fetch [remote app scripts](server)
 3. Open Terminal and move to the scripts directory
     ```
     $> cd trackr/server
     ```
-4. Configure [configs.json](TBD) (if required) -
+4. Configure configs.json ([server/configs.json]) (if required) -
  
     1. web server port (default 5000), 
     2. web socket port (default 9050)
@@ -106,7 +106,6 @@ To run the complete application, ensure that -
     4. To stop polling, use 'Stop' button
 
 #### License
-The source and other artifacts here are provided under [MIT License](https://opensource.org/licenses/MIT) or their respective licenses (if mentioned). 
-
+The source and other artifacts here are provided under [MIT License](https://opensource.org/licenses/MIT) or their respective licenses, if mentioned. 
 
 A link back here would be highly appreciated.
